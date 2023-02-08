@@ -11,8 +11,7 @@ class Calculator{
         this.c_operand = '';
         this.p_operand = '';
         this.operation = undefined;
-        
-        
+       
     }
 
     // delete(){
@@ -51,14 +50,14 @@ class Calculator{
         }
         this.operation = operation;
         this.opUsed = true;
-        
-        
+  
     }
 
     compute(){
         let computation;
         const prev = parseFloat(this.p_operand);
         const current = parseFloat(this.c_operand);
+
         if(isNaN(prev) || isNaN(current)) return
 
         switch(this.operation){
@@ -69,6 +68,7 @@ class Calculator{
                 computation = prev - current;
                 break;
             case 'x':
+
                 computation = prev * current;
                 break;
             case '÷':
@@ -102,6 +102,7 @@ class Calculator{
         }
         
         
+
       }
 }
     
@@ -122,7 +123,6 @@ num_buttons.forEach(button => {
     button.addEventListener('click', () => {
         calc.appendNumber(button.innerText);
         calc.updateDisplay();
-        
     })
 })
 
@@ -130,12 +130,14 @@ op_buttons.forEach(button => {
     button.addEventListener('click', () => {
         calc.chooseOperation(button.innerText);
         calc.updateDisplay();
+
     })
 })
 
 equal_button.addEventListener('click', button => {
     calc.compute();
     calc.updateDisplay();
+
 })
 
 
